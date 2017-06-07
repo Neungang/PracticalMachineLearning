@@ -182,10 +182,11 @@ myTraining &lt;- myTraining[, !toberem]</code></pre>
 <p>Correlation analysis:</p>
 <pre class="r"><code>Hcorr &lt;- caret::findCorrelation(cor(myTraining[, -53]), cutoff=0.8)
 names(myTraining)[Hcorr]</code></pre>
-<pre><code>##  [1] &quot;accel_belt_z&quot;     &quot;roll_belt&quot;        &quot;accel_belt_y&quot;    
-##  [4] &quot;accel_dumbbell_z&quot; &quot;accel_belt_x&quot;     &quot;pitch_belt&quot;      
-##  [7] &quot;accel_dumbbell_x&quot; &quot;accel_arm_x&quot;      &quot;magnet_arm_y&quot;    
-## [10] &quot;gyros_arm_x&quot;</code></pre>
+<pre><code>##  [1] &quot;accel_belt_z&quot;      &quot;roll_belt&quot;         &quot;accel_belt_y&quot;     
+##  [4] &quot;accel_dumbbell_z&quot;  &quot;accel_belt_x&quot;      &quot;pitch_belt&quot;       
+##  [7] &quot;magnet_dumbbell_y&quot; &quot;accel_dumbbell_x&quot;  &quot;accel_arm_x&quot;      
+## [10] &quot;magnet_arm_y&quot;      &quot;magnet_belt_z&quot;     &quot;gyros_forearm_y&quot;  
+## [13] &quot;gyros_dumbbell_x&quot;  &quot;gyros_dumbbell_z&quot;  &quot;gyros_arm_x&quot;</code></pre>
 <p>Many variables are highly correlated. PCA will be used in the pre-processing. After the data cleaning the variables selected to specify the model are:</p>
 <pre class="r"><code>names(myTraining)</code></pre>
 <pre><code>##  [1] &quot;roll_belt&quot;            &quot;pitch_belt&quot;           &quot;yaw_belt&quot;            
@@ -245,33 +246,33 @@ knitr::kable(performance)</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">Random Forest</td>
-<td align="left">0.989044763945986</td>
-<td align="left">0.986141109736431</td>
+<td align="left">0.990319917290522</td>
+<td align="left">0.987753843807616</td>
 </tr>
 <tr class="even">
 <td align="left">SVM (radial)</td>
-<td align="left">0.917883407461641</td>
-<td align="left">0.895898797584669</td>
+<td align="left">0.916442803745771</td>
+<td align="left">0.894090390942212</td>
 </tr>
 <tr class="odd">
 <td align="left">LogitBoost</td>
-<td align="left">0.893979761505266</td>
-<td align="left">0.864919315573653</td>
+<td align="left">0.896401337551296</td>
+<td align="left">0.868063885574401</td>
 </tr>
 <tr class="even">
 <td align="left">SVM (linear)</td>
-<td align="left">0.777766203847857</td>
-<td align="left">0.717449152307676</td>
+<td align="left">0.783455878430546</td>
+<td align="left">0.724818140392047</td>
 </tr>
 <tr class="odd">
 <td align="left">Neural Net</td>
-<td align="left">0.40760788875778</td>
-<td align="left">0.249763377353193</td>
+<td align="left">0.414999279366881</td>
+<td align="left">0.254398995434572</td>
 </tr>
 <tr class="even">
 <td align="left">Bayes GLM</td>
-<td align="left">0.403277290544878</td>
-<td align="left">0.236757971766808</td>
+<td align="left">0.404551032664155</td>
+<td align="left">0.238236970324273</td>
 </tr>
 <tr class="odd">
 <td align="left">Random forest an</td>
@@ -310,8 +311,8 @@ knitr::kable(prediction)</code></pre>
 </tr>
 <tr class="odd">
 <td align="right">2</td>
-<td align="right">3</td>
-<td align="left">FALSE</td>
+<td align="right">2</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -399,6 +400,11 @@ knitr::kable(prediction)</code></pre>
 <td align="left">TRUE</td>
 </tr>
 <tr class="odd">
+<td align="right">## Submission to</td>
+<td align="right">Coursera</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
 <td align="right">Generation of th</td>
 <td align="right">e files to be s</td>
 <td align="left">ubmitted is made through the provided function</td>
@@ -417,7 +423,7 @@ pml_write_files(rfPred)</code></pre>
 </div>
 <div id="conclusions" class="section level2">
 <h2>Conclusions</h2>
-<p>The random forest model provides an outstanding accuracy and, accordingly, the predictions for the test set were correct in 90% of the cases.</p>
+<p>The random forest model provides an outstanding accuracy and, accordingly, the predictions for the test set were correct in 100% of the cases.</p>
 </div>
 
 
